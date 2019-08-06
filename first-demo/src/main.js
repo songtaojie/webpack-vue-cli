@@ -1,16 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
-import store from './store/store'
+import router from './router/routes'
+import store from './store'
 import components from './components/'
-import './scss/root.scss'
+import  "./scss/site.scss";
 Vue.config.productionTip = false
-Object.keys(components).forEach((key)=>{
-  var name =key.replace(/(\w)/,(v)=>v.toUpperCase());
-  Vue.component(`v${name}`,components[key]);
+Object.keys(components).forEach((key) => {
+  var name = key.replace(/(\w)/, (v) => v.toUpperCase());
+  Vue.component(`v${name}`, components[key]);
 })
 
-new Vue({
+window.Vm = new Vue({
   router,
   store,
   render: h => h(App)

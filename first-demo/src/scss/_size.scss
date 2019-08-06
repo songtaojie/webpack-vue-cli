@@ -1,0 +1,38 @@
+@each $w in 25, 30, 50, 70, 100 {
+    .w-#{$w} {
+        width: #{$w}% !important;
+    }
+}
+/*小屏*/
+@media (min-width: 576px) {
+    @each $w in 25, 30, 50, 70, 100 {
+        .w-sm-#{$w} {
+            width: #{$w}% !important;
+        }
+    }
+}
+/*中屏*/
+
+@media (min-width: 768px) {
+    @each $w in 25, 30, 50, 70, 100{
+        .w-md-#{$w}{
+            width:#{$w}% !important;
+        }
+    }
+}
+/*大屏*/
+@media (min-width: 992px) {
+    @each $w in 25, 30, 50, 70, 100 {
+        .w-lg-#{$w} {
+            width: #{$w}% !important;
+        }
+    }
+}
+/*超大屏*/
+@media (min-width: 1200px) {
+    @each $w in 25, 30, 50, 70, 100 {
+        .w-xl-#{$w} {
+            width: #{$w}% !important;
+        }
+    }
+}

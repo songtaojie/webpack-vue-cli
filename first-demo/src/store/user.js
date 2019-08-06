@@ -2,13 +2,19 @@ import Vue from 'vue'
 
 export const USER_SIGNIN = 'USER_SIGNIN' //登录成功
 export const USER_SIGNOUT = 'USER_SIGNOUT' //退出成功
+export function isLogin(){
+    return Boolean(sessionStorage.getItem('user'))
+}
 
-export default {
+const user = {
     state: JSON.parse(sessionStorage.getItem('user')) || {},
     mutations: {
         [USER_SIGNIN](state, user) {
-            sessionStorage.setItem('user', JSON.stringify(user));
-            Object.assign(state, user)
+            debugger
+            if(user){
+                sessionStorage.setItem('user', JSON.stringify(user));
+                Object.assign(state, user)
+            }
         },
         [USER_SIGNOUT](state) {
             sessionStorage.removeItem('user')
@@ -16,7 +22,8 @@ export default {
         }
     },
     actions: {
-        [USER_SIGNIN]({commit,user}){
+        [USER_SIGNIN]({commit},user){
+            debugger
             commit(USER_SIGNIN,user);
         },
         [USER_SIGNOUT]({commit}){
@@ -24,3 +31,5 @@ export default {
         }
     }
 }
+
+export default user
